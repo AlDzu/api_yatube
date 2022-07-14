@@ -2,6 +2,8 @@ from api.views import CommentViewSet, GroupViewSet, PostViewSet
 from django.urls import include, path
 from rest_framework.routers import SimpleRouter
 
+app_name = 'api'
+
 router = SimpleRouter()
 
 router.register('api/v1/posts', PostViewSet)
