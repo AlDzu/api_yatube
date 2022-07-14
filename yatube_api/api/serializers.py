@@ -4,7 +4,9 @@ from rest_framework import serializers
 
 
 class CommentSerializer(serializers.ModelSerializer):
-    author = serializers.StringRelatedField(read_only=True)
+    author = serializers.PrimaryKeyRelatedField(
+        read_only=True,
+        default=serializers.CurrentUserDefault())
 
     class Meta:
         model = Comment
@@ -24,7 +26,9 @@ class GroupSerializer(serializers.ModelSerializer):
 
 
 class PostSerializer(serializers.ModelSerializer):
-    author = serializers.StringRelatedField(read_only=True)
+    author = serializers.PrimaryKeyRelatedField(
+        read_only=True,
+        default=serializers.CurrentUserDefault())
 
     class Meta:
         model = Post
